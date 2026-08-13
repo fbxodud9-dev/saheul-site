@@ -17,24 +17,27 @@ const TEMPLATES = [
     gradient: "linear-gradient(135deg, #E8A87C 0%, #8E2A4C 65%, #4A1830 100%)",
     status: "live",
     statusLabel: "미리보기 가능",
+    url: "https://shop-site-rosy.vercel.app",
   },
   {
     id: "cafe",
     label: "카페",
-    name: "준비중",
+    name: "온기로스터리",
     desc: "메뉴, 매장 소개, 예약/주문 링크 중심의 감성적인 카페 사이트",
     gradient: "linear-gradient(135deg, #D7C4A3 0%, #8B6A4A 65%, #4A3626 100%)",
-    status: "soon",
-    statusLabel: "제작 준비중",
+    status: "live",
+    statusLabel: "미리보기 가능",
+    url: "https://cafe-site-bay-one.vercel.app",
   },
   {
     id: "clinic",
     label: "병원",
-    name: "준비중",
+    name: "다온의원",
     desc: "진료 안내, 예약, 의료진 소개 중심의 신뢰감 있는 병원 사이트",
     gradient: "linear-gradient(135deg, #A9C6D8 0%, #3E6B8A 65%, #1B3A4F 100%)",
-    status: "soon",
-    statusLabel: "제작 준비중",
+    status: "live",
+    statusLabel: "미리보기 가능",
+    url: "https://clinic-site-seven-rouge.vercel.app",
   },
 ];
 
@@ -415,7 +418,9 @@ export default function ShowcaseLanding() {
           </div>
           {activeTemplate.status === "live" ? (
             <a
-              href="#"
+              href={activeTemplate.url}
+              target="_blank"
+              rel="noopener noreferrer"
               className="cta-btn focus-ring"
               style={{
                 background: "#FF6B4A",
