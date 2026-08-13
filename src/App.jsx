@@ -546,9 +546,23 @@ export default function ShowcaseLanding() {
               <h2 className="disp" style={{ fontSize: "clamp(24px, 3vw, 32px)", fontWeight: 700, color: "#F5F2EC", margin: "14px 0 14px" }}>
                 사내포털 · 인트라넷 제작도 해요
               </h2>
-              <p style={{ fontSize: 14.5, color: "rgba(245,242,236,0.7)", lineHeight: 1.75 }}>
+              <p style={{ fontSize: 14.5, color: "rgba(245,242,236,0.7)", lineHeight: 1.75, marginBottom: 14 }}>
                 공지사항, 인사/근태, 안전게시판, 쪽지함까지 — 임직원이 매일 쓰는 사내 포털을
                 회사 상황에 맞게 만들어드려요. 필요한 기능 수준에 따라 3단계로 나눠져 있어요.
+              </p>
+              <p
+                style={{
+                  fontSize: 12.5,
+                  color: "#2EC4B6",
+                  background: "rgba(46,196,182,0.1)",
+                  border: "1px solid rgba(46,196,182,0.3)",
+                  borderRadius: 10,
+                  padding: "10px 14px",
+                  lineHeight: 1.6,
+                }}
+              >
+                ※ '사흘 완성'은 소상공인 업종별 템플릿 기준이에요. 사내포털은 규모와 기능에 따라
+                제작 기간이 1~4주 이상 걸릴 수 있어요.
               </p>
             </div>
           </div>
@@ -715,7 +729,7 @@ export default function ShowcaseLanding() {
       <footer style={{ padding: "32px 24px", textAlign: "center", color: "#94A0B8", fontSize: 12, lineHeight: 1.8 }}>
         <div>사흘 (주식회사 로플) · 대표 류태영 · 사업자등록번호 234-86-03114</div>
         <div>경기도 화성시 동탄첨단산업1로 27, 1405호 (영천동, 금강펜테리움 IX타워)</div>
-        <div>문의 fbxodud9@lople.co.kr</div>
+        <div>문의 hello@saheul.kr</div>
       </footer>
     </div>
   );
