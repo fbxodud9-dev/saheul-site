@@ -15,6 +15,7 @@ const TEMPLATES = [
     name: "제철상자",
     desc: "상품 진열, 장바구니, 결제 흐름까지 갖춘 온라인 판매 사이트",
     gradient: "linear-gradient(135deg, #E8A87C 0%, #8E2A4C 65%, #4A1830 100%)",
+    image: "/previews/shop.png",
     status: "live",
     statusLabel: "미리보기 가능",
     url: "https://shop-site-rosy.vercel.app",
@@ -25,6 +26,7 @@ const TEMPLATES = [
     name: "온기로스터리",
     desc: "메뉴, 매장 소개, 예약/주문 링크 중심의 감성적인 카페 사이트",
     gradient: "linear-gradient(135deg, #D7C4A3 0%, #8B6A4A 65%, #4A3626 100%)",
+    image: "/previews/cafe.png",
     status: "live",
     statusLabel: "미리보기 가능",
     url: "https://cafe-site-bay-one.vercel.app",
@@ -35,6 +37,7 @@ const TEMPLATES = [
     name: "다온의원",
     desc: "진료 안내, 예약, 의료진 소개 중심의 신뢰감 있는 병원 사이트",
     gradient: "linear-gradient(135deg, #A9C6D8 0%, #3E6B8A 65%, #1B3A4F 100%)",
+    image: "/previews/clinic.png",
     status: "live",
     statusLabel: "미리보기 가능",
     url: "https://clinic-site-seven-rouge.vercel.app",
@@ -361,7 +364,22 @@ export default function ShowcaseLanding() {
               }}
               style={{ borderRadius: 18, overflow: "hidden", background: "#fff" }}
             >
-              <div style={{ aspectRatio: "4/3", background: t.gradient, position: "relative" }}>
+              <div style={{ aspectRatio: "4/3", background: t.gradient, position: "relative", overflow: "hidden" }}>
+                <img
+                  src={t.image}
+                  alt={t.name + " 미리보기"}
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    objectPosition: "top",
+                  }}
+                  onError={(e) => {
+                    e.currentTarget.style.display = "none";
+                  }}
+                />
                 <span
                   className="mono"
                   style={{
