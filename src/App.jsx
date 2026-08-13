@@ -355,7 +355,10 @@ export default function ShowcaseLanding() {
             <div
               key={t.id}
               className={"tmpl-card" + (activeTemplate.id === t.id ? " active" : "")}
-              onClick={() => setActiveTemplate(t)}
+              onClick={() => {
+                setActiveTemplate(t);
+                window.open(t.url, "_blank", "noopener,noreferrer");
+              }}
               style={{ borderRadius: 18, overflow: "hidden", background: "#fff" }}
             >
               <div style={{ aspectRatio: "4/3", background: t.gradient, position: "relative" }}>
@@ -566,7 +569,7 @@ export default function ShowcaseLanding() {
       <footer style={{ padding: "32px 24px", textAlign: "center", color: "#94A0B8", fontSize: 12, lineHeight: 1.8 }}>
         <div>사흘 (주식회사 로플) · 대표 류태영 · 사업자등록번호 234-86-03114</div>
         <div>경기도 화성시 동탄첨단산업1로 27, 1405호 (영천동, 금강펜테리움 IX타워)</div>
-        <div>문의 fbxodud9@lople.co.kr</div>
+        <div>문의 hello@saheul.kr</div>
       </footer>
     </div>
   );
