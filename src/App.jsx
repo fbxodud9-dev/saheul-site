@@ -504,68 +504,110 @@ export default function ShowcaseLanding() {
 
       {/* Enterprise Portal */}
       <section style={{ background: "#14213D", padding: "72px 24px" }}>
-        <div
-          className="hero-grid"
-          style={{
-            maxWidth: 1180,
-            margin: "0 auto",
-            display: "grid",
-            gridTemplateColumns: "0.95fr 1.05fr",
-            gap: 48,
-            alignItems: "center",
-          }}
-        >
+        <div style={{ maxWidth: 1180, margin: "0 auto" }}>
           <div
+            className="hero-grid"
             style={{
-              borderRadius: 16,
-              overflow: "hidden",
-              boxShadow: "0 24px 48px rgba(0,0,0,0.3)",
-              border: "1px solid rgba(245,242,236,0.1)",
+              display: "grid",
+              gridTemplateColumns: "0.95fr 1.05fr",
+              gap: 48,
+              alignItems: "center",
+              marginBottom: 48,
             }}
           >
-            <img
-              src="/previews/portal.png"
-              alt="사내포털 제작 미리보기"
-              style={{ width: "100%", display: "block" }}
-              onError={(e) => {
-                e.currentTarget.parentElement.style.background =
-                  "linear-gradient(135deg, #2EC4B6 0%, #14213D 100%)";
-                e.currentTarget.parentElement.style.aspectRatio = "16/10";
-                e.currentTarget.style.display = "none";
+            <div
+              style={{
+                borderRadius: 16,
+                overflow: "hidden",
+                boxShadow: "0 24px 48px rgba(0,0,0,0.3)",
+                border: "1px solid rgba(245,242,236,0.1)",
               }}
-            />
+            >
+              <img
+                src="/previews/portal.png"
+                alt="사내포털 제작 미리보기"
+                style={{ width: "100%", display: "block" }}
+                onError={(e) => {
+                  e.currentTarget.parentElement.style.background =
+                    "linear-gradient(135deg, #2EC4B6 0%, #14213D 100%)";
+                  e.currentTarget.parentElement.style.aspectRatio = "16/10";
+                  e.currentTarget.style.display = "none";
+                }}
+              />
+            </div>
+
+            <div>
+              <span
+                className="mono"
+                style={{ fontSize: 12, letterSpacing: "0.08em", color: "#2EC4B6", fontWeight: 600, textTransform: "uppercase" }}
+              >
+                기업 전용 서비스
+              </span>
+              <h2 className="disp" style={{ fontSize: "clamp(24px, 3vw, 32px)", fontWeight: 700, color: "#F5F2EC", margin: "14px 0 14px" }}>
+                사내포털 · 인트라넷 제작도 해요
+              </h2>
+              <p style={{ fontSize: 14.5, color: "rgba(245,242,236,0.7)", lineHeight: 1.75 }}>
+                공지사항, 인사/근태, 안전게시판, 쪽지함까지 — 임직원이 매일 쓰는 사내 포털을
+                회사 상황에 맞게 만들어드려요. 필요한 기능 수준에 따라 3단계로 나눠져 있어요.
+              </p>
+            </div>
           </div>
 
-          <div>
-            <span
-              className="mono"
-              style={{ fontSize: 12, letterSpacing: "0.08em", color: "#2EC4B6", fontWeight: 600, textTransform: "uppercase" }}
-            >
-              기업 전용 서비스
-            </span>
-            <h2 className="disp" style={{ fontSize: "clamp(24px, 3vw, 32px)", fontWeight: 700, color: "#F5F2EC", margin: "14px 0 14px" }}>
-              사내포털 · 인트라넷 제작도 해요
-            </h2>
-            <p style={{ fontSize: 14.5, color: "rgba(245,242,236,0.7)", lineHeight: 1.75, marginBottom: 24 }}>
-              공지사항, 인사/근태, 안전게시판, 쪽지함까지 — 임직원이 매일 쓰는 사내 포털을
-              회사 상황에 맞게 만들어드려요. 부서별 권한 설정, 게시판 커스터마이징도 가능해요.
-            </p>
-
-            <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 28 }}>
-              {["공지사항 · 인사게시판 · 안전게시판 등 게시판 구성", "부서/직급별 접근 권한 설정", "회사 로고·컬러에 맞춘 디자인 커스터마이징"].map((f) => (
-                <div key={f} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 13.5, color: "#F5F2EC" }}>
-                  <Check size={16} color="#2EC4B6" /> {f}
+          <div className="tmpl-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20, marginBottom: 32 }}>
+            {[
+              {
+                tier: "베이직",
+                price: "300~500만원",
+                desc: "게시판 중심, 로그인 없이 전 직원 공개",
+                features: ["게시판 3~5개 구성", "회사 로고·컬러 반영", "1~2주 제작"],
+              },
+              {
+                tier: "스탠다드",
+                price: "600~1,000만원",
+                desc: "로그인과 부서별 권한 관리가 필요할 때",
+                features: ["부서/직급별 접근 권한", "개인 로그인 계정 관리", "쪽지함 · 알림 기능"],
+                highlight: true,
+              },
+              {
+                tier: "프리미엄",
+                price: "1,200만원~",
+                desc: "실제 업무 처리가 들어가는 시스템 수준",
+                features: ["근태 기록 · 휴가 신청/승인", "전자결재 워크플로우", "외부 시스템(급여 등) 연동 협의"],
+              },
+            ].map((p) => (
+              <div
+                key={p.tier}
+                style={{
+                  background: p.highlight ? "#2EC4B6" : "rgba(245,242,236,0.06)",
+                  border: p.highlight ? "none" : "1px solid rgba(245,242,236,0.12)",
+                  borderRadius: 16,
+                  padding: 24,
+                }}
+              >
+                <span
+                  className="mono"
+                  style={{ fontSize: 11, fontWeight: 700, color: p.highlight ? "#14213D" : "#2EC4B6" }}
+                >
+                  {p.tier.toUpperCase()}
+                </span>
+                <div className="disp" style={{ fontSize: 22, fontWeight: 700, color: p.highlight ? "#14213D" : "#F5F2EC", margin: "8px 0 6px" }}>
+                  {p.price}
                 </div>
-              ))}
-            </div>
+                <p style={{ fontSize: 12.5, color: p.highlight ? "rgba(20,33,61,0.75)" : "rgba(245,242,236,0.6)", marginBottom: 16, lineHeight: 1.5 }}>
+                  {p.desc}
+                </p>
+                <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                  {p.features.map((f) => (
+                    <div key={f} style={{ display: "flex", alignItems: "center", gap: 7, fontSize: 12.5, color: p.highlight ? "#14213D" : "#F5F2EC" }}>
+                      <Check size={14} color={p.highlight ? "#14213D" : "#2EC4B6"} /> {f}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
 
-            <div style={{ display: "flex", alignItems: "baseline", gap: 8, marginBottom: 20 }}>
-              <span className="disp" style={{ fontSize: 26, fontWeight: 700, color: "#F5F2EC" }}>
-                500만원부터
-              </span>
-              <span style={{ fontSize: 13, color: "rgba(245,242,236,0.55)" }}>· 규모/기능에 따라 별도 견적</span>
-            </div>
-
+          <div style={{ textAlign: "center" }}>
             <a
               href="mailto:hello@saheul.kr?subject=사내포털 제작 문의"
               className="cta-btn focus-ring"
@@ -673,7 +715,7 @@ export default function ShowcaseLanding() {
       <footer style={{ padding: "32px 24px", textAlign: "center", color: "#94A0B8", fontSize: 12, lineHeight: 1.8 }}>
         <div>사흘 (주식회사 로플) · 대표 류태영 · 사업자등록번호 234-86-03114</div>
         <div>경기도 화성시 동탄첨단산업1로 27, 1405호 (영천동, 금강펜테리움 IX타워)</div>
-        <div>문의 hello@saheul.kr</div>
+        <div>문의 fbxodud9@lople.co.kr</div>
       </footer>
     </div>
   );
